@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل المشاعر</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>تحليل مشاعر النصوص</h1>
+        <form method="POST">
+            <label for="text">أدخل النص:</label>
+            <textarea id="text" name="text" rows="4" required></textarea>
+            <button type="submit">تحليل</button>
+        </form>
+        {% if sentiment %}
+        <div class="result">
+            <h2>النتيجة: {{ sentiment }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
