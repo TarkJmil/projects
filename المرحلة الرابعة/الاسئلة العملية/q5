@@ -1,0 +1,10 @@
+<!-- templates/search.html -->
+
+<form action="{% url 'search' %}" method="get">
+    <input type="search" name="q" placeholder="البحث عن منتج">
+    <button type="submit">بحث</button>
+</form>
+
+{% for product in products %}
+    <p>{{ product.name }} ({{ product.price }})</p>
+{% endfor %}

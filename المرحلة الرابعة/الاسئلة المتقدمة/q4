@@ -1,0 +1,5 @@
+ بناء الـ REST API باستخدام Django من خلال:
+
+استخدام مكتبات مثل Django REST Framework لإنشاء REST API.
+استخدام مكتبات مثل Django Channels لإنشاء REST API في الوقت الحقيقي.
+استخدام أدوات مثل Django Debug Toolbar لإنشاء REST API.

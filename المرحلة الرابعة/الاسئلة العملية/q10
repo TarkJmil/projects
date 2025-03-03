@@ -1,0 +1,11 @@
+def filter_products(request):
+    min_price = request.GET.get('min_price', 0)
+    max_price = request.GET.get('max_price', 10000)
+    category = request.GET.get('category', '')
+
+    products = Product.objects.all()
+    if category:
+        products = products.filter(category__name=category)
+    products = products.filter(price__gte=min_price, price__lte=max_price)
+
+    return render(request, 'product_list.html', {'products': products})

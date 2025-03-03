@@ -1,0 +1,9 @@
+خطوات بناء API باستخدام DRF
+
+تثبيت DRF: يمكنك تثبيت DRF عن طريق إضافة rest_framework إلى INSTALLED_APPS في settings.py.
+تكوين DRF: يمكنك تكوين DRF عن طريق إضافة REST_FRAMEWORK إلى settings.py.
+إنشاء MODELS: يمكنك إنشاء MODELS باستخدام django.db.models.
+إنشاء SERIALIZERS: يمكنك إنشاء SERIALIZERS باستخدام rest_framework.serializers.
+إنشاء VIEWS: يمكنك إنشاء VIEWS باستخدام rest_framework.views.
+إنشاء ROUTES: يمكنك إنشاء ROUTES باستخدام rest_framework.routers.
+

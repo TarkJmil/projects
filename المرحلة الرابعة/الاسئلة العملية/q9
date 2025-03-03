@@ -1,0 +1,10 @@
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    stock = models.PositiveIntegerField()
+
+    def decrease_stock(self, quantity):
+        if self.stock >= quantity:
+            self.stock -= quantity
+            self.save()
+        else:
+            raise ValueError("المخزون غير كافٍ!")

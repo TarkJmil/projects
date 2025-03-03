@@ -1,0 +1,14 @@
+from django.shortcuts import render, redirect
+from django.contrib.sessions.models import Session
+
+def add_to_cart(request, product_id):
+    session = request.session
+    cart = session.get('cart', {})
+    cart[product_id] = cart.get(product_id, 0) + 1
+    session['cart'] = cart
+    return redirect('cart')
+
+def cart_view(request):
+    session = request.session
+    cart = session.get('cart', {})
+    return render(request, 'cart.html', {'cart': cart})

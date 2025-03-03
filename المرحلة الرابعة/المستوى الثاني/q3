@@ -1,0 +1,29 @@
+# views.py
+from django.shortcuts import HttpResponse
+
+def تعديل_قيمة(request):
+    # تعديل القيمة في قاعدة البيانات
+    # ...
+    return HttpResponse("تم تعديل القيمة بنجاح")
+ربط URL إلى دالة view:
+
+يمكنك ربط عنوان URL إلى دالة view عن طريق تعديل ملف urls.py في مجلد المشروع:
+
+python
+
+# urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('تعديل_قيمة/', views.تعديل_قيمة, name='تعديل_قيمة'),
+]
+ملاحظة: يمكنك تعديل عنوان URL لتناسب احتياجاتك.
+
+شغلة المثال:
+
+دخول الملفات: الدخول إلى مجلد المشروع.
+فتح المتصفح: فتح المتصفح واكتب عنوان URL:
+
+
+http://localhost:8000/تعديل_قيمة/

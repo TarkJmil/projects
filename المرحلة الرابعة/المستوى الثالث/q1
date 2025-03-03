@@ -1,0 +1,43 @@
+الـ "Class-based Views" (CBVs) هي طريقة أخرى لإنشاء views في Django، حيث يتم استخدام كلاس لإنشاء عملية معينة، مثل عرض صفحة أو إجراء عملية معينة.
+
+فرق بين Function-based Views و Class-based Views
+
+Function-based Views:
+يتم استخدام دالة لإنشاء عملية معينة.
+الدالة تؤدي العملية المطلوبة.
+لا يمكن إنشاء حالة أو حالة متصلة.
+Class-based Views:
+يتم استخدام كلاس لإنشاء عملية معينة.
+الكلاس يحتوي على دالة أو دوال متصلة التي تؤدي العملية المطلوبة.
+يمكن إنشاء حالة أو حالة متصلة.
+استخدام Class-based Views
+
+لإنشاء Class-based View، يمكنك استخدام الكلاس View الموجودة في Django. يمكنك إضافة دالة أو دوال متصلة إلى الكلاس لإنشاء عملية معينة.
+
+python
+
+
+# views.py
+from django.shortcuts import render
+from django.views import View
+
+class MyView(View):
+    def get(self, request):
+        # دالة get لإنشاء عملية عرض
+        return render(request, 'template.html')
+
+    def post(self, request):
+        # دالة post لإنشاء عملية إجراء عملية معينة
+        # ...
+يمكنك استخدام Class-based View في URL كما تريد.
+
+python
+
+
+# urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('my-view/', views.MyView.as_view()),
+]

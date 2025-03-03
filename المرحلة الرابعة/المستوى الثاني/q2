@@ -1,0 +1,32 @@
+دخول الملفات: الدخول إلى مجلد التطبيق الذي تريد إضافة النموذج إليه:
+
+cd تطبيق_مثال
+تحرير models.py: تحرير ملف models.py لضبط نموذج البيانات الجديد:
+python
+
+from django.db import models
+
+class نموذج_مثال(models.Model):
+    field1 = models.CharField(max_length=255)
+    field2 = models.IntegerField()
+    # ...
+تشغيل ترحيل النموذج: تشغيل ترحيل النموذج باستخدام manage.py:
+
+python manage.py makemigrations تطبيق_مثال
+تحرير ملفات الترحيل: تحرير ملفات الترحيل التي تم إنشاؤها في مجلد migrations:
+
+cd تطبيق_مثال/migrations
+تشغيل ترحيل النموذج: تشغيل الترحيل النهائي باستخدام manage.py:
+
+python manage.py migrate
+خطوات إجراء الترحيل (Migration) للنموذج:
+
+تشغيل ترحيل النموذج: تشغيل ترحيل النموذج باستخدام manage.py:
+
+python manage.py makemigrations تطبيق_مثال
+تحرير ملفات الترحيل: تحرير ملفات الترحيل التي تم إنشاؤها في مجلد migrations:
+
+cd تطبيق_مثال/migrations
+تشغيل ترحيل النموذج: تشغيل الترحيل النهائي باستخدام manage.py:
+
+python manage.py migrate

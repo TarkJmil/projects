@@ -1,0 +1,4 @@
+استخدام CSRF Protection لحماية النماذج.
+تشفير كلمات المرور باستخدام django.contrib.auth.
+تفعيل HTTPS باستخدام Let’s Encrypt.
+حماية البيانات باستخدام SECURE_BROWSER_XSS_FILTER و X_FRAME_OPTIONS.

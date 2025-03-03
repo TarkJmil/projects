@@ -1,0 +1,76 @@
+suppose أن لديك نموذج بسيط يحتوي على حقل اسم وآخر:
+
+python
+
+# models.py
+from django.db import models
+
+class User(models.Model):
+    name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+إنشاء نموذج باستخدام Django Forms:
+
+يمكنك إنشاء نموذج باستخدام Django Forms عن طريق إنشاء ملف forms.py في مجلد التطبيق:
+
+python
+
+# forms.py
+from django import forms
+from .models import User
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('name', 'last_name')
+إنشاء صفحة تفاعلية:
+
+يمكنك إنشاء صفحة تفاعلية عن طريق إنشاء ملف views.py في مجلد التطبيق:
+
+python
+
+# views.py
+from django.shortcuts import render, redirect
+from .forms import UserForm
+
+def create_user(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = UserForm()
+    return render(request, 'create_user.html', {'form': form})
+إنشاء صفحة HTML:
+
+يمكنك إنشاء صفحة HTML عن طريق إنشاء ملف create_user.html في مجلد templates:
+
+html
+
+<!-- create_user.html -->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+ربط URL إلى دالة view:
+
+يمكنك ربط عنوان URL إلى دالة view عن طريق تعديل ملف urls.py في مجلد المشروع:
+
+python
+
+# urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('create_user/', views.create_user, name='create_user'),
+]
+شغلة المثال:
+
+دخول الملفات: الدخول إلى مجلد المشروع.
+فتح المتصفح: فتح المتصفح واكتب عنوان URL:
+
+
+http://localhost:8000/create_user/
+إظهار النتائج: إظهار النتائج في المتصفح بعد إدخال عنوان URL.

@@ -1,0 +1,65 @@
+تخصيص نموذج معين:
+
+يمكنك تخصيص نموذج معين في الـ Admin عن طريق تعديل ملف admin.py في مجلد التطبيق:
+
+python
+
+
+# admin.py
+from django.contrib import admin
+from .models import نموذج_مثال
+
+class Customنموذج_مثال(admin.ModelAdmin):
+    list_display = ('field1', 'field2')  # عرض الحقول في قائمة الـ Admin
+    search_fields = ('field1',)  # إضافة حقل بحث
+    list_filter = ('field2',)  # إضافة حقل تصفية
+
+admin.site.register(نموذج_مثال, Customنموذج_مثال)
+إضافة ميزات جديدة:
+
+يمكنك إضافة ميزات جديدة في الـ Admin عن طريق تعديل ملف admin.py في مجلد التطبيق:
+
+python
+
+
+# admin.py
+from django.contrib import admin
+from .models import نموذج_مثال
+
+class Customنموذج_مثال(admin.ModelAdmin):
+    list_display = ('field1', 'field2')  # عرض الحقول في قائمة الـ Admin
+    search_fields = ('field1',)  # إضافة حقل بحث
+    list_filter = ('field2',)  # إضافة حقل تصفية
+    actions = ['حذف_النماذج']  # إضافة إجراء جديد
+
+def حذف_النماذج(modeladmin, request, queryset):
+    queryset.delete()
+
+admin.site.register(نموذج_مثال, Customنموذج_مثال)
+تخصيص واجهة الـ Admin:
+
+يمكنك تخصيص واجهة الـ Admin عن طريق تعديل ملف admin.py في مجلد التطبيق:
+
+python
+
+
+# admin.py
+from django.contrib import admin
+from .models import نموذج_مثال
+
+class Customنموذج_مثال(admin.ModelAdmin):
+    list_display = ('field1', 'field2')  # عرض الحقول في قائمة الـ Admin
+    search_fields = ('field1',)  # إضافة حقل بحث
+    list_filter = ('field2',)  # إضافة حقل تصفية
+    actions = ['حذف_النماذج']  # إضافة إجراء جديد
+
+admin.site.site_header = 'واجهة الـ Admin المخصصة'  # تغيير شعار الـ Admin
+admin.site.index_title = 'قائمة النماذج'  # تغيير عنوان الـ Admin
+admin.site.site_title = 'واجهة الـ Admin'  # تغيير عنوان الـ Admin
+شغلة المثال:
+
+دخول الملفات: الدخول إلى مجلد المشروع.
+فتح المتصفح: فتح المتصفح واكتب عنوان URL:
+
+
+

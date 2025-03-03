@@ -1,0 +1,17 @@
+تأمين CSRF (Cross-Site Request Forgery)
+تأمين XSS (Cross-Site Scripting)
+تأمين الحسابات والموارد
+تأمين البيانات
+تأمين CSRF (Cross-Site Request Forgery)
+
+تأمين CSRF هو ضروري لتجنب الهجمات التي تهدف إلى تنفيذ طلبات بدون رغبة المستخدم. في Django، يمكنك تأمين CSRF عن طريق:
+
+إضافة تابع csrf_token إلى كل FORM.
+استخدام مكون CsrfViewMiddleware في settings.py.
+تأمين XSS (Cross-Site Scripting)
+
+تأمين XSS هو ضروري لتجنب الهجمات التي تهدف إلى تنفيذ كود JavaScript بدون رغبة المستخدم. في Django، يمكنك تأمين XSS عن طريق:
+
+استخدام مكون django.middleware.security.SecurityMiddleware في settings.py.
+استخدام مكون django.template.defaulttags لتحديد الأقوام المسموح بها.
+استخدام مكون django.utils.html.escape لتحويل الأقوام إلى HTML.

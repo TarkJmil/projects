@@ -1,0 +1,8 @@
+يمكنك تكامل Django مع PostgreSQL عن طريق إضافة قاعدة بيانات PostgreSQL إلى مشروعك. إليك كيفية إعداد الاتصال بين Django و PostgreSQL:
+
+خطوات إعداد الاتصال بين Django و PostgreSQL
+
+تثبيت PostgreSQL: يمكنك تثبيت PostgreSQL على نظامك عن طريق تنزيل ملف التثبيت من موقع PostgreSQL الرسمي.
+تكوين PostgreSQL: يمكنك تكوين PostgreSQL عن طريق إنشاء قاعدة بيانات جديدة وإنشاء حساب جديد.
+تثبيت قاعدة بيانات Django: يمكنك تثبيت قاعدة بيانات Django عن طريق إضافة django.db.backends.postgresql إلى INSTALLED_APPS في settings.py.
+تكوين قاعدة بيانات Django: يمكنك تكوين قاعدة بيانات Django عن طريق إضافة DATABASES إلى settings.py.

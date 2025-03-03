@@ -1,0 +1,37 @@
+خطوات إجراء اختبار لوظائف Django باستخدام TestCase
+
+تثبيت TestCase: يمكنك تثبيت TestCase عن طريق إضافة django.test إلى INSTALLED_APPS في settings.py.
+إنشاء ملف اختبار: يمكنك إنشاء ملف اختبار جديد باستخدام python manage.py startapp واختيار اسم الملف.
+إنشاء اختبار: يمكنك إنشاء اختبار جديد باستخدام TestCase وإنشاء متغيرات جديدة.
+إجراء اختبار: يمكنك إجراء اختبار باستخدام assertEqual و assertNotEqual و assertTrue و assertFalse.
+مثال اختبار وحدة باستخدام Django
+
+python
+
+
+from django.test import TestCase
+from .models import Book
+
+class BookTestCase(TestCase):
+    def test_book_creation(self):
+        book = Book(title='كتاب جديد', author='كاتب جديد')
+        book.save()
+        self.assertEqual(Book.objects.count(), 1)
+
+    def test_book_retrieval(self):
+        book = Book(title='كتاب جديد', author='كاتب جديد')
+        book.save()
+        self.assertEqual(Book.objects.get(id=1).title, 'كتاب جديد')
+
+    def test_book_update(self):
+        book = Book(title='كتاب جديد', author='كاتب جديد')
+        book.save()
+        book.title = 'كتاب جديد المحدث'
+        book.save()
+        self.assertEqual(Book.objects.get(id=1).title, 'كتاب جديد المحدث')
+
+    def test_book_deletion(self):
+        book = Book(title='كتاب جديد', author='كاتب جديد')
+        book.save()
+        book.delete()
+        self.assertEqual(Book.objects.count(), 0)

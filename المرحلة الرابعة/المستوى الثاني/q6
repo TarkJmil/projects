@@ -1,0 +1,38 @@
+suppose أن لديك نموذج عنصر جديد في تطبيق Django:
+
+python
+
+# models.py
+from django.db import models
+
+class عنصر_جديد(models.Model):
+    اسم = models.CharField(max_length=255)
+    وصف = models.TextField()
+إرسال إشعار عند إضافة عنصر جديد:
+
+يمكنك إرسال إشعار عند إضافة عنصر جديد باستخدام signal post_save:
+
+python
+
+# signals.py
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from .models import عنصر_جديد
+
+@receiver(post_save, sender=عنصر_جديد)
+def إرسال_إشعار_إضافة_عنصر_جديد(sender, instance, created, **kwargs):
+    if created:
+        # إرسال إشعار
+        print(f"عنصر جديد إضاف: {instance.اسم}")
+تثبيت signal:
+
+يمكنك تثبيت signal في ملف admin.py في مجلد التطبيق:
+
+python
+
+# admin.py
+from django.contrib import admin
+from .models import عنصر_جديد
+from .signals import إرسال_إشعار_إضافة_عنصر_جديد
+
+admin.site.register(عنصر_جديد)
